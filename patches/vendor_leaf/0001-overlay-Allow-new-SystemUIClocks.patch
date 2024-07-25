@@ -1,0 +1,34 @@
+From 2f16d13979fa6426167555e4bf55ebd1dde2f97a Mon Sep 17 00:00:00 2001
+From: Subhashis2007 <itzsubhashis@proton.me>
+Date: Sat, 22 Jun 2024 19:01:41 +0530
+Subject: [PATCH] overlay: Allow new SystemUIClocks
+
+---
+ .../base/packages/SystemUI/res/values/config.xml    | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/overlay/common/frameworks/base/packages/SystemUI/res/values/config.xml b/overlay/common/frameworks/base/packages/SystemUI/res/values/config.xml
+index a98c4fb..f582883 100644
+--- a/overlay/common/frameworks/base/packages/SystemUI/res/values/config.xml
++++ b/overlay/common/frameworks/base/packages/SystemUI/res/values/config.xml
+@@ -22,4 +22,17 @@
+ 
+     <!-- Whether or not lockscreen shortcuts can be customized -->
+     <bool name="custom_lockscreen_shortcuts_enabled" translatable="false">true</bool>
++
++    <!-- SystemUI Plugins that can be loaded on user builds. -->
++    <string-array name="config_pluginAllowlist" translatable="false">
++        <item>com.android.systemui.clocks</item>
++        <item>com.android.systemui.clocks.bignum</item>
++        <item>com.android.systemui.clocks.calligraphy</item>
++        <item>com.android.systemui.clocks.flex</item>
++        <item>com.android.systemui.clocks.growth</item>
++        <item>com.android.systemui.clocks.inflate</item>
++        <item>com.android.systemui.clocks.numoverlap</item>
++        <item>com.android.systemui.clocks.metro</item>
++</string-array>
++
+ </resources>
+-- 
+2.46.0
+
