@@ -1,0 +1,3 @@
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+ $(MY_LOCAL_PATH)
