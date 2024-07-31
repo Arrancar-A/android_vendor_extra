@@ -14,4 +14,8 @@ PRODUCT_PACKAGES += \
     SystemUIClocks-NumOverlap 
 endif
 
-
+ifeq ($(INCLUDE_LAWNCHAIR), true)
+PRODUCT_PACKAGES += \
+    Lawnchair \
+    LawnchairOverlay
+endif
