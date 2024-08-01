@@ -1,0 +1,22 @@
+From 384101ae1c88565df536240c59722159f40d362f Mon Sep 17 00:00:00 2001
+From: Subhashis2007 <itzsubhashis@proton.me>
+Date: Thu, 1 Aug 2024 08:16:50 +0530
+Subject: [PATCH] common: Include private signing keys if available
+
+---
+ config/common.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/config/common.mk b/config/common.mk
+index 83b8427..6f66fb9 100644
+--- a/config/common.mk
++++ b/config/common.mk
+@@ -132,3 +132,5 @@ PRODUCT_PACKAGES += \
+ # Permissions
+ PRODUCT_COPY_FILES += \
+     vendor/leaf/config/permissions/privapp-permissions-settings.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-settings.xml
++
++-include vendor/lineage-priv/keys/keys.mk
+-- 
+2.46.0
+
