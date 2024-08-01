@@ -1,0 +1,35 @@
+From d3fa7116e1c5e300d6fe60955a3cc297de392662 Mon Sep 17 00:00:00 2001
+From: Michael Bestas <mkbestas@lineageos.org>
+Date: Tue, 20 Dec 2022 22:42:00 +0200
+Subject: [PATCH] Add e2fsck/resize2fs/tune2fs to recovery
+
+Fixes: [ERROR]: recovery: [libfs_mgr]Unable to enable ext4 verity on
+/dev/block/by-name/metadata because /system/bin/tune2fs is missing
+
+in recovery.
+
+Test: e2fsck/resize2fs/tune2fs are present in ramdisks.
+Change-Id: I83223f48e4df8b89ff9b27b0912174360c053617
+---
+ Android.mk | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/Android.mk b/Android.mk
+index 8506040f..ea83a3a3 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -73,6 +73,11 @@ LOCAL_REQUIRED_MODULES += \
+     dump.erofs.recovery \
+     fsck.erofs.recovery
+ 
++LOCAL_REQUIRED_MODULES += \
++    e2fsck.recovery \
++    resize2fs.recovery \
++    tune2fs.recovery
++
+ # On A/B devices recovery-persist reads the recovery related file from the persist storage and
+ # copies them into /data/misc/recovery. Then, for both A/B and non-A/B devices, recovery-persist
+ # parses the last_install file and reports the embedded update metrics. Also, the last_install file
+-- 
+2.46.0
+

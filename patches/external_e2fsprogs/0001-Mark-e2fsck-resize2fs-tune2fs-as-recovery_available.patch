@@ -1,0 +1,51 @@
+From 5de05be18db58f82b8df21641bf5a0ad8ca3d684 Mon Sep 17 00:00:00 2001
+From: Michael Bestas <mkbestas@lineageos.org>
+Date: Thu, 22 Dec 2022 04:26:11 +0200
+Subject: [PATCH] Mark e2fsck/resize2fs/tune2fs as `recovery_available`
+
+Change-Id: Ia679223c2db9087e841649995fdb09ecd628d717
+---
+ e2fsck/Android.bp | 1 +
+ misc/Android.bp   | 1 +
+ resize/Android.bp | 1 +
+ 3 files changed, 3 insertions(+)
+
+diff --git a/e2fsck/Android.bp b/e2fsck/Android.bp
+index b42de9d7..8bde97b7 100644
+--- a/e2fsck/Android.bp
++++ b/e2fsck/Android.bp
+@@ -61,6 +61,7 @@ e2fsck_libs = [
+ cc_binary {
+     name: "e2fsck",
+     host_supported: true,
++    recovery_available: true,
+     vendor_ramdisk_available: true,
+     defaults: ["e2fsck-defaults"],
+ 
+diff --git a/misc/Android.bp b/misc/Android.bp
+index a00ac9a8..e1ae07f2 100644
+--- a/misc/Android.bp
++++ b/misc/Android.bp
+@@ -157,6 +157,7 @@ tune2fs_libs = [
+ cc_binary {
+     name: "tune2fs",
+     host_supported: true,
++    recovery_available: true,
+     vendor_ramdisk_available: true,
+     defaults: ["tune2fs-defaults"],
+ 
+diff --git a/resize/Android.bp b/resize/Android.bp
+index ea6cf1e4..015be6b3 100644
+--- a/resize/Android.bp
++++ b/resize/Android.bp
+@@ -33,6 +33,7 @@ cc_defaults {
+ cc_binary {
+     name: "resize2fs",
+     host_supported: true,
++    recovery_available: true,
+     vendor_ramdisk_available: true,
+     defaults: ["resize2fs-defaults"],
+ 
+-- 
+2.46.0
+
